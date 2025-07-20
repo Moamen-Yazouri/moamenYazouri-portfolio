@@ -1,24 +1,23 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import { motion, type Variants } from "framer-motion"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Github, LinkIcon } from "lucide-react"
+import Image from "next/image";
+import { motion, type Variants } from "framer-motion";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Github, LinkIcon } from "lucide-react";
 
 interface Project {
-  id: string
-  title: string
-  description: string
-  imageUrl: string
-  technologies: string[]
-  deployLink?: string
-  githubLink?: string
+  id: string;
+  title: string;
+  description: string;
+  imageUrl: string;
+  technologies: string[];
+  deployLink?: string;
+  githubLink?: string;
 }
 
 export default function ProjectsSection() {
-  // Dummy data for demonstration. Replace with your actual project data.
   const projects: Project[] = [
     {
       id: "proj1",
@@ -70,17 +69,15 @@ export default function ProjectsSection() {
       deployLink: "#",
       githubLink: "#",
     },
-  ]
+  ];
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.1, // Stagger the animation of each card
-      },
+      transition: { staggerChildren: 0.1 },
     },
-  }
+  };
 
   const itemVariants: Variants = {
     hidden: { y: 50, opacity: 0 },
@@ -93,7 +90,7 @@ export default function ProjectsSection() {
         damping: 12,
       },
     },
-  }
+  };
 
   return (
     <section id="projects" className="w-full py-12 md:py-24 lg:py-32 bg-[hsl(var(--background))]">
@@ -106,33 +103,39 @@ export default function ProjectsSection() {
           className="flex flex-col items-center justify-center space-y-8 text-center"
         >
           <motion.div variants={itemVariants} className="space-y-4">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl gradient-text">My Projects</h2>
-            <p className="max-w-[900px] text-[hsl(var(--muted-foreground))] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl gradient-text">
+              My Projects
+            </h2>
+            <p className="max-w-[900px] text-[hsl(var(--muted-foreground))] md:text-xl/relaxed">
               A collection of my recent work, showcasing my skills and passion for web development.
             </p>
           </motion.div>
 
           <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
             variants={containerVariants}
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 w-full max-w-7xl"
           >
             {projects.map((project) => (
-              <motion.div key={project.id} variants={itemVariants} whileHover={{ scale: 1.03, rotateZ: 1 }}>
-                <Card className="h-full flex flex-col overflow-hidden group transition-all duration-300 hover:shadow-lg hover:border-[hsl(var(--primary))]">
+              <motion.div
+                key={project.id}
+                variants={itemVariants}
+                whileHover={{ scale: 1.03, rotateZ: 1 }}
+                className="transition-all duration-300"
+              >
+                <Card className="h-full flex flex-col overflow-hidden group border border-border hover:border-[hsl(var(--primary))] hover:shadow-lg transition-all duration-300">
                   <div className="relative w-full h-56 overflow-hidden bg-muted">
                     <Image
-                      src={project.imageUrl || "/placeholder.svg"}
+                      src={project.imageUrl}
                       alt={project.title}
                       fill
                       className="object-cover transition-transform duration-300 group-hover:scale-110"
                     />
                   </div>
-                  <CardHeader className="flex-shrink-0">
+
+                  <CardHeader>
                     <CardTitle className="text-xl font-semibold">{project.title}</CardTitle>
                   </CardHeader>
+
                   <CardContent className="flex-grow flex flex-col justify-between">
                     <div>
                       <p className="text-sm text-[hsl(var(--muted-foreground))] leading-relaxed mb-4">
@@ -146,9 +149,15 @@ export default function ProjectsSection() {
                         ))}
                       </div>
                     </div>
+
                     <div className="flex gap-2 mt-auto">
                       {project.deployLink && (
-                        <Button asChild variant="outline" size="sm">
+                        <Button
+                          asChild
+                          variant="outline"
+                          size="sm"
+                          className="transition-colors duration-300 ease-in-out hover:bg-[hsl(var(--primary)/0.1)] hover:text-[hsl(var(--primary))] cursor-pointer"
+                        >
                           <a href={project.deployLink} target="_blank" rel="noopener noreferrer">
                             <LinkIcon className="h-4 w-4 mr-2" />
                             Live Demo
@@ -156,7 +165,12 @@ export default function ProjectsSection() {
                         </Button>
                       )}
                       {project.githubLink && (
-                        <Button asChild variant="outline" size="sm">
+                        <Button
+                          asChild
+                          variant="outline"
+                          size="sm"
+                          className="transition-colors duration-300 ease-in-out hover:bg-[hsl(var(--primary)/0.1)] hover:text-[hsl(var(--primary))] cursor-pointer"
+                        >
                           <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
                             <Github className="h-4 w-4 mr-2" />
                             GitHub
@@ -172,5 +186,5 @@ export default function ProjectsSection() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
