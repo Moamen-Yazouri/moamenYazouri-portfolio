@@ -53,7 +53,7 @@ export function TechIconsAnimation() {
           transition={{ duration, delay, ease: "easeInOut", repeat: Infinity, repeatType: "reverse" }}
           style={{ width: size, height: size, pointerEvents: "none", zIndex: 0 }}
         >
-          <Image src={tech.src} alt={tech.alt} width={size} height={size} style={{backgroundColor: color, borderRadius: 50, padding: 2}}/>
+          <Image src={tech.src} alt={tech.alt} width={size} height={size} style={{backgroundColor: "white", padding: 2}}/>
         </motion.div>
       )
     })
