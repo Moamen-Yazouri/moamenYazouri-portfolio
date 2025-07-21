@@ -13,7 +13,7 @@ interface Certificate {
 }
 
 export default function CertificatesSection() {
-  // Dummy data for demonstration. You can replace this with data fetched from an API or a local array.
+  
   const certificates: Certificate[] = [
     {
       id: "cert1",
