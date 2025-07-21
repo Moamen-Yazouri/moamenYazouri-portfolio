@@ -592,3 +592,90 @@ pre code {
 .textarea::placeholder {
   color: hsl(var(--muted-foreground));
 }
+
+/* Add this to your hero-animations.css or globals.css */
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite cubic-bezier(0.6, 0.01, 0.3, 0.9);
+}
+
+/* New animation for slower blobs in the footer */
+@keyframes blob-slow {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  25% {
+    transform: translate(20px, -15px) scale(1.05);
+  }
+  50% {
+    transform: translate(-10px, 25px) scale(0.98);
+  }
+  75% {
+    transform: translate(15px, -20px) scale(1.02);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.animate-blob-slow {
+  animation: blob-slow 15s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gradient-text {
+  background-image: linear-gradient(to right, hsl(var(--primary)), hsl(var(--accent)));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Optional: Add a subtle floating animation for particles if not already defined */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Optional: Tilt animation for profile card */
+@keyframes tilt {
+  0%,
+  100% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  25% {
+    transform: rotateX(1deg) rotateY(1deg);
+  }
+  75% {
+    transform: rotateX(-1deg) rotateY(-1deg);
+  }
+}
+
+.animate-tilt {
+  animation: tilt 10s infinite ease-in-out;
+}
+
