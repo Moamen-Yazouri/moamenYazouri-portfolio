@@ -1,25 +1,14 @@
 "use client"
 
-import type React from "react"
+import type React from "react";
 
-import { useEffect, useState } from "react"
-import { easeInOut, motion } from "framer-motion"
-import { CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import CardWrapper from "./components/CardWrapper"
-import { achievements, myStory, techStack } from "./constants"
-import StoryCard from "./components/storyCard"
-import TechStack from "./components/techStack"
-import Achivements from "./components/achivements"
-import AboutTitle from "./components/aboutTitle"
-import BackgroundOrbs from "./components/backgroundOrbs"
-
-
-
-
-
-// Reusable wrapper for cards with enhanced gradient
-
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import StoryCard from "./components/storyCard";
+import TechStack from "./components/techStack";
+import Achivements from "./components/achivements";
+import AboutTitle from "./components/aboutTitle";
+import BackgroundOrbs from "./components/backgroundOrbs";
 
 export default function AboutMeSection() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
