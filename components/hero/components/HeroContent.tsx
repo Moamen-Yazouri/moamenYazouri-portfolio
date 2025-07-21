@@ -20,8 +20,8 @@ export default function HeroContent() {
         React & Next.js Developer
       </motion.h2>
       <motion.p className="text-lg text-[hsl(var(--muted-foreground))] mb-8 max-w-2xl leading-relaxed">
-        I’m a React and Next.js developer with deep expertise in JavaScript and TypeScript. 
-        Currently expanding my skills in backend development with Node.js and Express to become a well-rounded full-stack engineer.
+        I’m a React and Next.js developer with deep expertise in JavaScript and TypeScript. Currently expanding my skills in backend development with Node.js and Express to become a well-rounded full-stack engineer.
+        I study Cyber Security Engineering at the University College of Applied Sciences in Gaza.
       </motion.p>
       <motion.div className="flex flex-wrap gap-2 justify-center lg:justify-start mb-8">
         {
