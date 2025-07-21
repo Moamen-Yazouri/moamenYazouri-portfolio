@@ -1,5 +1,4 @@
-export interface Certificate {
-  id: string,
+export interface ICertificate {
   title: string,
   description: string,
   imageUrl: string,
