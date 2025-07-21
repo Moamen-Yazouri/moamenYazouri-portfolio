@@ -1,18 +1,9 @@
 "use client"
-import { JSX, useEffect, useState } from "react"
-import { motion } from "framer-motion"
-import Image from "next/image"
-import { getIconColor } from "../utils/getIconColor"
+import { JSX, useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { techIcons } from "../constants";
 
-const techIcons = [
-  { src: "/icons/react.svg", alt: "React" },
-  { src: "/icons/nextdotjs.svg", alt: "Next.js" },
-  { src: "/icons/mongodb.svg", alt: "MongoDB" },
-  { src: "/icons/firebase.svg", alt: "Firebase" },
-  { src: "/icons/tailwindcss.svg", alt: "Tailwind CSS" },
-  { src: "/icons/typescript.svg", alt: "TypeScript" },
-  { src: "/icons/javascript.svg", alt: "JavaScript" },
-]
 
 export function TechIconsAnimation() {
   const [icons, setIcons] = useState<JSX.Element[]>([])
@@ -36,7 +27,7 @@ export function TechIconsAnimation() {
       const delay = Math.random() * 10
       const size = 24 + Math.random() * 24
       const opacity = 0.3 + Math.random() * 0.7
-      const color = getIconColor(tech.alt);
+      
   
       return (
         <motion.div
@@ -53,7 +44,7 @@ export function TechIconsAnimation() {
           transition={{ duration, delay, ease: "easeInOut", repeat: Infinity, repeatType: "reverse" }}
           style={{ width: size, height: size, pointerEvents: "none", zIndex: 0 }}
         >
-          <Image src={tech.src} alt={tech.alt} width={size} height={size} style={{backgroundColor: "white", padding: 2}}/>
+          <Image src={tech.src} alt={tech.alt} width={size} height={size} style={{ padding: 2}}/>
         </motion.div>
       )
     })
