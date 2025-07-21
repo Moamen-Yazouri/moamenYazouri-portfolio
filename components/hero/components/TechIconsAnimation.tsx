@@ -6,10 +6,10 @@ import { getIconColor } from "../utils/getIconColor"
 
 const techIcons = [
   { src: "/icons/react.svg", alt: "React" },
-  { src: "/icons/nextdotjs.svg", alt: "Next.js" },
-  { src: "/icons/mongodb.svg", alt: "MongoDB" },
+  { src: "/icons/nextjs.svg", alt: "Next.js" },
+  { src: "/icons/mongo.svg", alt: "MongoDB" },
   { src: "/icons/firebase.svg", alt: "Firebase" },
-  { src: "/icons/tailwindcss.svg", alt: "Tailwind CSS" },
+  { src: "/icons/tailwind.svg", alt: "Tailwind CSS" },
   { src: "/icons/typescript.svg", alt: "TypeScript" },
   { src: "/icons/javascript.svg", alt: "JavaScript" },
 ]
@@ -53,7 +53,7 @@ export function TechIconsAnimation() {
           transition={{ duration, delay, ease: "easeInOut", repeat: Infinity, repeatType: "reverse" }}
           style={{ width: size, height: size, pointerEvents: "none", zIndex: 0 }}
         >
-          <Image src={tech.src} alt={tech.alt} width={size} height={size} style={{backgroundColor: "white", padding: 2}}/>
+          <Image src={tech.src} alt={tech.alt} width={size} height={size} style={{ padding: 2}}/>
         </motion.div>
       )
     })
