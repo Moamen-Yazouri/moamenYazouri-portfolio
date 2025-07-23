@@ -13,7 +13,8 @@ const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
   {
       rules: {
-      'import/no-anonymous-default-export': 'off'
+      'import/no-anonymous-default-export': 'off',
+      "@typescript-eslint/no-empty-object-type": 'false'
     }
   }
 ];

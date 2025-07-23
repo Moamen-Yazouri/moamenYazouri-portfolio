@@ -3,6 +3,8 @@
 import Image from "next/image"
 import { motion, type Variants } from "framer-motion"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { containerVariants, itemVariants } from "./variants.constants"
+import SkillCard from "./components/SkillCard"
 
 interface Skill {
   id: string
@@ -12,7 +14,7 @@ interface Skill {
 }
 
 export default function TechSkillsSection() {
-  // Dummy data for demonstration. Replace with your actual tech skills data.
+  
   const skills: Skill[] = [
     {
       id: "react",
@@ -70,28 +72,6 @@ export default function TechSkillsSection() {
     },
   ]
 
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.08, // Stagger the animation of each card
-      },
-    },
-  }
-
-  const itemVariants: Variants = {
-    hidden: { y: 50, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 12,
-      },
-    },
-  }
 
   return (
     <section id="tech-skills" className="w-full py-12 md:py-24 lg:py-32 bg-[hsl(var(--background))]">
@@ -120,25 +100,7 @@ export default function TechSkillsSection() {
             className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 w-full max-w-7xl"
           >
             {skills.map((skill) => (
-              <motion.div key={skill.id} variants={itemVariants} whileHover={{ scale: 1.05, rotateZ: 2 }}>
-                <Card className="h-full flex flex-col items-center text-center p-6 transition-all duration-300 hover:shadow-lg hover:border-[hsl(var(--primary))]">
-                  <div className="relative w-16 h-16 mb-4 flex items-center justify-center">
-                    <Image
-                      src={skill.iconUrl || "/placeholder.svg"}
-                      alt={skill.name}
-                      width={64}
-                      height={64}
-                      className="object-contain"
-                    />
-                  </div>
-                  <CardHeader className="p-0 mb-2">
-                    <CardTitle className="text-lg font-semibold">{skill.name}</CardTitle>
-                  </CardHeader>
-                  <CardContent className="p-0 flex-grow">
-                    <p className="text-sm text-[hsl(var(--muted-foreground))] leading-relaxed">{skill.description}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
+              <SkillCard key={skill.id} {...skill}/>
             ))}
           </motion.div>
         </motion.div>
