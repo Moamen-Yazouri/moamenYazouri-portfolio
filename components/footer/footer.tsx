@@ -1,53 +1,17 @@
-"use client"
-
-import { motion, type Variants } from "framer-motion"
-import { Github, Linkedin, Mail, PhoneIcon as Whatsapp } from "lucide-react" // Import Whatsapp icon
-import { Button } from "@/components/ui/button"
+"use client";
+import { motion } from "framer-motion";
+import { Mail, PhoneIcon as Whatsapp } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import BackgroundEffects from "./components/backgroundEffects";
+import { containerVariants, itemVariants } from "./variants.constants";
+import { SOCIAL_ICONS } from "./constants";
 
 export default function FooterSection() {
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  }
-
-  const itemVariants: Variants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 12,
-      },
-    },
-  }
-
+  
   return (
     <footer className="w-full py-12 md:py-16 relative overflow-hidden bg-gradient-to-br from-[hsl(var(--background))] via-[hsl(var(--muted)/0.1)] to-[hsl(var(--accent)/0.05)]">
-      {/* Background creative elements */}
-      <div className="absolute inset-0 overflow-hidden z-0">
-        <motion.div
-          className="absolute -bottom-20 -left-20 w-64 h-64 bg-[hsl(var(--primary)/0.08)] rounded-full mix-blend-multiply filter blur-xl animate-blob-slow"
-          animate={{ x: [0, 30, 0], y: [0, -30, 0] }}
-          transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute -top-20 -right-20 w-56 h-56 bg-[hsl(var(--success)/0.08)] rounded-full mix-blend-multiply filter blur-xl animate-blob-slow"
-          animate={{ x: [0, -30, 0], y: [0, 30, 0] }}
-          transition={{ duration: 22, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute bottom-1/4 left-1/4 w-48 h-48 bg-[hsl(var(--warning)/0.05)] rounded-full mix-blend-multiply filter blur-2xl animate-blob-slow"
-          animate={{ scale: [1, 1.05, 1], rotate: [0, 10, -10, 0] }}
-          transition={{ duration: 25, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-        />
-      </div>
+      
+      <BackgroundEffects />
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <motion.div
@@ -70,11 +34,11 @@ export default function FooterSection() {
               className="text-lg font-medium text-[hsl(var(--primary))] hover:underline flex items-center gap-2"
             >
               <Mail className="h-5 w-5" />
-              your.email@example.com
+              moaamenalyazouri@gmail.com
             </a>
-            {/* New WhatsApp Link */}
+
             <a
-              href="https://wa.me/YOUR_PHONE_NUMBER" // Replace YOUR_PHONE_NUMBER with your actual WhatsApp number (e.g., 1234567890)
+              href="https://wa.me/+970567709710"
               target="_blank"
               rel="noopener noreferrer"
               className="text-lg font-medium text-[hsl(var(--primary))] hover:underline flex items-center gap-2"
@@ -85,10 +49,7 @@ export default function FooterSection() {
           </motion.div>
 
           <motion.div variants={itemVariants} className="flex gap-4 justify-center">
-            {[
-              { Icon: Github, name: "GitHub", link: "#" },
-              { Icon: Linkedin, name: "LinkedIn", link: "#" },
-            ].map(({ Icon, name, link }) => (
+            {SOCIAL_ICONS.map(({ Icon, name, link }) => (
               <Button
                 key={name}
                 asChild
