@@ -15,7 +15,7 @@ type TProps = Omit<
     style?: IStyle;
 };
 
-const TextArea = (props: TProps) => {
+const CustomTextArea = (props: TProps) => {
     const { name, label, placeholder, className, style, ...rest } = props;
     const [field, meta] = useField<string>(name);
 
@@ -55,4 +55,4 @@ const TextArea = (props: TProps) => {
 };  
 
 
-export default TextArea;
+export default CustomTextArea;

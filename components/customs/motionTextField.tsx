@@ -17,12 +17,13 @@ const CustomTextField: React.FC<CustomTextFieldProps> = ({
   name,
   label,
   style,
+  type,
   ...rest
 }) => {
     const [field, meta] = useField(name)
 
     return (
-        <div className="space-y-2">
+        <div className="grid w-full items-center gap-1.5">
         {label && (
             <Label
             htmlFor={name}
@@ -40,7 +41,7 @@ const CustomTextField: React.FC<CustomTextFieldProps> = ({
                 id={name}
                 {...field}
                 {...rest}
-                type={"text"}
+                type={type || "text"}
                 className={clsx(
                 style?.input ??
                     "w-full bg-slate-900/60 border-cyan-600/30 text-slate-200 placeholder:text-blue-300 focus:border-cyan-400 focus:ring-cyan-300/40 hover:border-cyan-500 transition-all duration-200",
