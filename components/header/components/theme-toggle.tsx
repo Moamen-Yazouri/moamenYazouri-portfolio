@@ -20,7 +20,7 @@ export function ThemeToggle() {
       aria-label="Toggle theme"
     >
       <motion.div
-        key={theme} // Key prop to trigger re-animation on theme change
+        key={theme} 
         initial={{ rotate: theme === "light" ? 90 : -90, opacity: 0 }}
         animate={{ rotate: 0, opacity: 1 }}
         exit={{ rotate: theme === "light" ? -90 : 90, opacity: 0 }}
