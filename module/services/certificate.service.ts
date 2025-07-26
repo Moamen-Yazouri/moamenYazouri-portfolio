@@ -1,6 +1,7 @@
 import { CertificateForPortfolio, ICertificate, ICertificateFromDB } from "@/@types";
-import certificatesRepo from "../../repositories/certificates.repo";
-import { formatCertificates } from "./utils";
+import certificatesRepo from "../repositories/certificates.repo";
+import { formater } from "./utils/utils";
+
 
 class CertificateService {
     async addCertificate(certificate: ICertificate): Promise<ICertificateFromDB[] | null> {
@@ -17,7 +18,7 @@ class CertificateService {
     async getAllCertificates(): Promise<CertificateForPortfolio[]>{
         try {
             const certificates = await certificatesRepo.getAllCertificates();
-            const formatedCerts = formatCertificates(certificates);
+            const formatedCerts = formater<ICertificateFromDB, CertificateForPortfolio>(certificates);
             return formatedCerts;
         }
         catch(error) {
