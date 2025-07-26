@@ -14,7 +14,7 @@ export default function HeroSection() {
         <BackgroundOrbs />
         <TechIconsAnimation />
         <FloatingParticles />
-        <div className="absolute inset-0 bg-[hsl(var(--background)/0.2)]  pointer-events-none z-0" />
+        <div className="absolute inset-0 bg-[hsl(var(--background)/0.6)]  pointer-events-none z-0" />
       </div>
 
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">

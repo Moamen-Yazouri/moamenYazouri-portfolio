@@ -1,11 +1,6 @@
 "use client";
-
-import Image from "next/image";
 import { motion, type Variants } from "framer-motion";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Github, LinkIcon } from "lucide-react";
+import ProjectCard from "./components/projectCard";
 
 interface Project {
   id: string;
@@ -116,71 +111,10 @@ export default function ProjectsSection() {
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 w-full max-w-7xl"
           >
             {projects.map((project) => (
-              <motion.div
+              <ProjectCard
                 key={project.id}
-                variants={itemVariants}
-                whileHover={{ scale: 1.03, rotateZ: 1 }}
-                className="transition-all duration-300"
-              >
-                <Card className="h-full flex flex-col overflow-hidden group border border-border hover:border-[hsl(var(--primary))] hover:shadow-lg transition-all duration-300">
-                  <div className="relative w-full h-56 overflow-hidden bg-muted">
-                    <Image
-                      src={project.imageUrl}
-                      alt={project.title}
-                      fill
-                      className="object-cover transition-transform duration-300 group-hover:scale-110"
-                    />
-                  </div>
-
-                  <CardHeader>
-                    <CardTitle className="text-xl font-semibold">{project.title}</CardTitle>
-                  </CardHeader>
-
-                  <CardContent className="flex-grow flex flex-col justify-between">
-                    <div>
-                      <p className="text-sm text-[hsl(var(--muted-foreground))] leading-relaxed mb-4">
-                        {project.description}
-                      </p>
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {project.technologies.map((tech) => (
-                          <Badge key={tech} variant="outline" className="text-xs">
-                            {tech}
-                          </Badge>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="flex gap-2 mt-auto">
-                      {project.deployLink && (
-                        <Button
-                          asChild
-                          variant="outline"
-                          size="sm"
-                          className="transition-colors duration-300 ease-in-out hover:bg-[hsl(var(--primary)/0.1)] hover:text-[hsl(var(--primary))] cursor-pointer"
-                        >
-                          <a href={project.deployLink} target="_blank" rel="noopener noreferrer">
-                            <LinkIcon className="h-4 w-4 mr-2" />
-                            Live Demo
-                          </a>
-                        </Button>
-                      )}
-                      {project.githubLink && (
-                        <Button
-                          asChild
-                          variant="outline"
-                          size="sm"
-                          className="transition-colors duration-300 ease-in-out hover:bg-[hsl(var(--primary)/0.1)] hover:text-[hsl(var(--primary))] cursor-pointer"
-                        >
-                          <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
-                            <Github className="h-4 w-4 mr-2" />
-                            GitHub
-                          </a>
-                        </Button>
-                      )}
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
+                {...project}
+              />
             ))}
           </motion.div>
         </motion.div>
