@@ -7,9 +7,9 @@ import {
 import { motion, Variants } from 'framer-motion';
 import React from 'react';
 import Image from "next/image";
-import { ICertificate } from '@/@types';
+import { CertificateForPortfolio } from '@/@types';
 interface IProps {
-    cert: ICertificate;
+    cert: CertificateForPortfolio;
     itemVariants: Variants,
 
 }
