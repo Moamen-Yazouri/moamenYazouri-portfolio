@@ -2,7 +2,7 @@ import { IProject, IProjectFormDB } from "@/@types";
 import projectRepo from "../repositories/project.repo";
 
 class ProjectService {
-    async addCertificate(project: IProject): Promise<IProjectFormDB[] | null> {
+    async addProject(project: IProject): Promise<IProjectFormDB[] | null> {
         try {
             const newData = await projectRepo.addProject(project);
             return newData;
@@ -13,7 +13,7 @@ class ProjectService {
         }
     }
 
-    async getAllprojects(){
+    async getAllProjects(){
         try {
             const projects = await projectRepo.getAllProjects();
             return projects;
