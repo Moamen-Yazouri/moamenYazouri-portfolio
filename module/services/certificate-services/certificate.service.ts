@@ -14,7 +14,7 @@ class CertificateService {
         }
     }
 
-    async getAllCertificates(){
+    async getAllCertificates(): Promise<CertificateForPortfolio[]>{
         try {
             const certificates = await certificatesRepo.getAllCertificates();
             const formatedCerts = formatCertificates(certificates);
@@ -22,7 +22,7 @@ class CertificateService {
         }
         catch(error) {
             console.error("Failed to get certificates!", error);
-            return null;
+            return [];
         }
     }
 }

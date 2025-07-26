@@ -10,11 +10,11 @@ import Image from "next/image";
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Github, LinkIcon } from 'lucide-react';
-import { IProject } from '@/@types';
+import { IProject, ProjectForPortfolio } from '@/@types';
 import { itemVariants } from '../variants.constant';
-interface IProps extends IProject {}
+interface IProps extends ProjectForPortfolio {}
 const ProjectCard = ({
-    id,
+    _id,
     title,
     description,
     imageUrl,
@@ -24,7 +24,7 @@ const ProjectCard = ({
 }: IProps) => {
     return (
         <motion.div
-            key={id}
+            key={_id}
             variants={itemVariants}
             whileHover={{ scale: 1.03, rotateZ: 1 }}
             className="transition-all duration-300"
