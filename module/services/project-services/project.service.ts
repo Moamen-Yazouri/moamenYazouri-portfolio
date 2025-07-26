@@ -1,5 +1,6 @@
-import { IProject, IProjectFormDB } from "@/@types";
-import projectRepo from "../repositories/project.repo";
+import { IProject, IProjectFormDB, ProjectForPortfolio } from "@/@types";
+import projectRepo from "../../repositories/project.repo";
+import { formatProject } from "./utils";
 
 class ProjectService {
     async addProject(project: IProject): Promise<IProjectFormDB[] | null> {
@@ -13,14 +14,15 @@ class ProjectService {
         }
     }
 
-    async getAllProjects(){
+    async getAllProjects(): Promise<ProjectForPortfolio[]>{
         try {
             const projects = await projectRepo.getAllProjects();
-            return projects;
+            const formatedProjects = formatProject(projects);
+            return formatedProjects;
         }
         catch(error) {
             console.error("Failed to get projects!", error);
-            return null;
+            return [];
         }
     }
 }
