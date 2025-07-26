@@ -28,6 +28,8 @@ export interface IDbFormat {
     __v: number  
 }
 
-export interface ICertificateFromDB extends ICertificate, IDbFormat {}
+export interface ICertificateFromDB extends ICertificate, IDbFormat {};
 
-export interface IProjectFormDB extends IProject, IDbFormat {}
+export interface IProjectFormDB extends IProject, IDbFormat {};
+
+export interface ISkillFormDB extends ISkill, IDbFormat {};
