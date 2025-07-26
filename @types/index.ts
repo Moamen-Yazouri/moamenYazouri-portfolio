@@ -1,4 +1,3 @@
-import { ObjectId } from "mongoose"
 
 export interface ICertificate {
   title: string,
@@ -7,19 +6,7 @@ export interface ICertificate {
   link?: string,
 }
 
-export interface ICertificateFormDB {
-    _id: ObjectId,             
-    title: string,              
-    description: string,        
-    imageUrl: string,           
-    link?: string,              
-    createdAt: Date,            
-    updatedAt: Date             
-    __v: number  
-}
-
 export interface IProject {
-  id: string,
   title: string,
   description: string,
   imageUrl: string,
@@ -29,8 +16,18 @@ export interface IProject {
 }
 
 export interface ISkill {
-  id: string
   name: string
   iconUrl: string
   description: string
 }
+
+export interface IDbFormat {
+    _id: string,                           
+    createdAt: Date,            
+    updatedAt: Date             
+    __v: number  
+}
+
+export interface ICertificateFromDB extends ICertificate, IDbFormat {}
+
+export interface IProjectFormDB extends IProject, IDbFormat {}
