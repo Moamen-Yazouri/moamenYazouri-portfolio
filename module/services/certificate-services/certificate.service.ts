@@ -1,8 +1,9 @@
-import { ICertificate, ICertificateFormDB } from "@/@types";
-import certificatesRepo from "../repositories/certificates.repo";
+import { CertificateForPortfolio, ICertificate, ICertificateFromDB } from "@/@types";
+import certificatesRepo from "../../repositories/certificates.repo";
+import { formatCertificates } from "./utils";
 
 class CertificateService {
-    async addCertificate(certificate: ICertificate): Promise<ICertificateFormDB[] | null> {
+    async addCertificate(certificate: ICertificate): Promise<ICertificateFromDB[] | null> {
         try {
             const newData = await certificatesRepo.addCertificate(certificate);
             return newData;
@@ -16,7 +17,8 @@ class CertificateService {
     async getAllCertificates(){
         try {
             const certificates = await certificatesRepo.getAllCertificates();
-            return certificates;
+            const formatedCerts = formatCertificates(certificates);
+            return formatedCerts;
         }
         catch(error) {
             console.error("Failed to get certificates!", error);
