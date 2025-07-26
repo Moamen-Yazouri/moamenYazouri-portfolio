@@ -1,5 +1,6 @@
-import { ISkill, ISkillFormDB } from "@/@types";
+import { ISkill, ISkillFormDB, SkillForPortfolio } from "@/@types";
 import skillRepo from "../repositories/skill.repo";
+import { formater } from "./utils/utils";
 
 class SkillService {
     async addSkill(skill: ISkill): Promise<ISkillFormDB[] | null> {
@@ -16,7 +17,7 @@ class SkillService {
     async getAllSkills(){
         try {
             const skills = await skillRepo.getAllSkills();
-            return skills;
+            return formater<ISkillFormDB, SkillForPortfolio>(skills);
         }
         catch(error) {
             console.error("Failed to get skills!", error);
