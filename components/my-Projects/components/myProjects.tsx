@@ -1,8 +1,8 @@
 "use client";
 import { motion } from "framer-motion";
-import ProjectCard from "./components/projectCard";
+import ProjectCard from "./projectCard";
 import { ProjectForPortfolio } from "@/@types";
-import { containerVariants, itemVariants } from "./variants.constant";
+import { containerVariants, itemVariants } from "../variants.constant";
 
 interface IProps {
   projects: ProjectForPortfolio[]
