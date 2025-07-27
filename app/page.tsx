@@ -9,7 +9,7 @@ import certificateService from "@/module/services/certificate.service";
 import { Suspense } from "react";
 
 export default  async function Home() {
-  
+  throw new Error("testring")
   return (
     <>
     {/* <Header/>

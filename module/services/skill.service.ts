@@ -24,7 +24,7 @@ class SkillService {
         }
         catch(error) {
             console.error("Failed to get skills!", error);
-            return null;
+            return [];
         }
     }
 }

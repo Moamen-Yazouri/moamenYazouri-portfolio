@@ -1,7 +1,7 @@
 "use client"
 import { motion } from "framer-motion";
-import { containerVariants, itemVariants } from "./variants.constants";
-import SkillCard from "./components/SkillCard";
+import { containerVariants, itemVariants } from "../variants.constants";
+import SkillCard from "./SkillCard";
 import { SkillForPortfolio } from "@/@types";
 
 interface IProps {

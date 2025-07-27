@@ -6,7 +6,7 @@ const ProjectsContent = async() => {
   const projects = await projectService.getAllProjects();
   return (
     <ProjectsSection projects={projects}/>
-  )
+  ) 
 }
 
 export default ProjectsContent
