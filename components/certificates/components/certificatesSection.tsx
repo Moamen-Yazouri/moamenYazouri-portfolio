@@ -1,7 +1,7 @@
 "use client"
 import { motion } from "framer-motion"; 
-import CertificateCard from "./components/certificateCard";
-import { containerVariants, itemVariants } from "./variants.constants";
+import CertificateCard from "../components/certificateCard";
+import { containerVariants, itemVariants } from "../variants.constants";
 import { CertificateForPortfolio } from "@/@types";
 
 interface IProps {

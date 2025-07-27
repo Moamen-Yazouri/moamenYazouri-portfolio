@@ -1,5 +1,6 @@
 import { ISkill, ISkillFormDB } from "@/@types";
-import SkillModel from "@/DB/models/projects.model";
+import SkillModel from "@/DB/models/skill.model";
+
 
 class SkillRepo {
     async getAllSkills() {
