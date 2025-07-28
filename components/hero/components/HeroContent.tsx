@@ -7,7 +7,11 @@ import { ArrowRight, Download, Github, Linkedin, Mail } from "lucide-react"
 import Link from "next/link";
 import { skills } from "../constants";
 
-
+const socialLinks = [
+  { Icon: Github, name: "github", href: "https://github.com/Moamen-Yazouri" },
+  { Icon: Linkedin, name: "linkedin", href: "https://www.linkedin.com/in/moamen-al-yazouri-80742433a/" },
+  { Icon: Mail, name: "mail", href: "mailto:moaamenalyazouri@gmail.com.com" },
+];
 export default function HeroContent() {
   
   return (
@@ -57,20 +61,22 @@ export default function HeroContent() {
       </motion.div>
 
       <motion.div className="flex gap-4 justify-center lg:justify-start">
-        {[
-          { Icon: Github, name: "github" },
-          { Icon: Linkedin, name: "linkedin" },
-          { Icon: Mail, name: "mail" },
-        ].map(({ Icon, name }) => (
+        {socialLinks.map(({ Icon, name, href }) => (
+        <Link
+          key={name}
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Button
-            key={name}
             variant="ghost"
             size="icon"
             className="transition-colors hover:bg-[hsl(var(--primary)/0.1)] hover:text-[hsl(var(--primary))] cursor-pointer"
           >
             <Icon className="h-5 w-5" />
           </Button>
-        ))}
+        </Link>
+      ))}
       </motion.div>
     </motion.div>
   )
