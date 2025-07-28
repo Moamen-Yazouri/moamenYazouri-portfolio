@@ -34,6 +34,7 @@ export interface IMessage {
   message: string,
 }
 
+export interface IMessageFromDB extends IMessage, IDbFormat {};
 
 export interface ICertificateFromDB extends ICertificate, IDbFormat {};
 

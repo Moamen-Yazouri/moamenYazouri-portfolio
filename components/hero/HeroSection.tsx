@@ -5,10 +5,31 @@ import { BackgroundOrbs } from "./components/BackgroundOrbs";
 import "./hero-animations.css";
 import ProfileCard from "./components/ProfileCard";
 import HeroContent from "./components/HeroContent";
+import { useContext, useEffect, useRef } from "react";
+import { useInView } from "framer-motion";
+import { InViewContext } from "@/providers/inViewSection/inViewSection";
 
 export default function HeroSection() {
+    const ref = useRef(null);
+  const isInView = useInView(ref, { margin: "-40% 0px -50% 0px" });
+  const {setInView} = useContext(InViewContext);
+  
+  useEffect(() => {
+    let debounce = undefined;
+
+    if(isInView) {
+      debounce = setTimeout(() => {
+        setInView("#home");
+      }, 500);
+    }
+    return () => {
+      if(debounce) {
+        clearTimeout(debounce);
+      }
+    }
+  }, [isInView]);
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="#home" ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden">
         
       <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--background))] via-[hsl(var(--background))] to-[hsl(var(--muted)/0.2)]">
         <BackgroundOrbs />

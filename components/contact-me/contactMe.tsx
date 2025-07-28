@@ -2,19 +2,38 @@
 
 import type React from "react"
 
-import { motion } from "framer-motion"
+import { motion, useInView } from "framer-motion"
 import ContactForm from "./components/contactForm"
 import BackgroundElements from "./components/backgroundElements"
 import SocialLinks from "./components/socialLinks"
 import { containerVariants, itemVariants } from "./varients.constants"
+import { useContext, useEffect, useRef } from "react"
+import { InViewContext } from "@/providers/inViewSection/inViewSection"
 
 export default function ContactSection() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { margin: "-40% 0px -50% 0px" });
+  const {setInView} = useContext(InViewContext);
 
-  
+  useEffect(() => {
+    let debounce = undefined;
+
+    if(isInView) {
+      debounce = setTimeout(() => {
+        setInView("#contact");
+      }, 500);
+    }
+    return () => {
+      if(debounce) {
+        clearTimeout(debounce);
+      }
+    }
+  }, [isInView]);
 
   return (
     <section
       id="contact"
+      ref= {ref}
       className="w-full py-12 md:py-24 lg:py-32 relative overflow-hidden bg-gradient-to-br from-[hsl(var(--background))] via-[hsl(var(--muted)/0.2)] to-[hsl(var(--accent)/0.1)]"
     >
       <BackgroundElements />

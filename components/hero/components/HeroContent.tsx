@@ -4,10 +4,12 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { ArrowRight, Download, Github, Linkedin, Mail } from "lucide-react"
-import Link from "next/link"
-import { skills } from "../constants"
+import Link from "next/link";
+import { skills } from "../constants";
+
 
 export default function HeroContent() {
+  
   return (
     <motion.div className="text-center lg:text-left">
       <Badge variant="secondary" className="mb-4 px-3 py-1">

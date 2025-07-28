@@ -1,17 +1,36 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import ProjectCard from "./projectCard";
 import { ProjectForPortfolio } from "@/@types";
 import { containerVariants, itemVariants } from "../variants.constant";
+import { useContext, useEffect, useRef } from "react";
+import { InViewContext } from "@/providers/inViewSection/inViewSection";
 
 interface IProps {
   projects: ProjectForPortfolio[]
 }
 export default function ProjectsSection({projects}: IProps) {
+    const ref = useRef(null);
+  const isInView = useInView(ref, { margin: "-40% 0px -50% 0px" });
+  const {setInView} = useContext(InViewContext);
   
+  useEffect(() => {
+    let debounce = undefined;
+
+    if(isInView) {
+      debounce = setTimeout(() => {
+        setInView("#projects");
+      }, 500);
+    }
+    return () => {
+      if(debounce) {
+        clearTimeout(debounce);
+      }
+    }
+  }, [isInView]);
 
   return (
-    <section id="projects" className="w-full py-12 md:py-24 lg:py-32 bg-[hsl(var(--background))]">
+    <section id="projects" ref={ref} className="w-full py-12 md:py-24 lg:py-32 bg-[hsl(var(--background))]">
       <div className="container mx-auto px-4 md:px-6">
         <motion.div
           initial="hidden"

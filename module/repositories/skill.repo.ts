@@ -1,3 +1,4 @@
+"server-only";
 import { ISkill, ISkillFormDB } from "@/@types";
 import SkillModel from "@/DB/models/skill.model";
 

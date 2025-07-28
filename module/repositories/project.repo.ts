@@ -1,3 +1,4 @@
+"server-only";
 import { IProject, IProjectFormDB } from "@/@types";
 import ProjectModel from "@/DB/models/projects.model";
 

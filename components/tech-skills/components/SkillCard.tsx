@@ -7,7 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 interface IProps extends SkillForPortfolio {}
 const SkillCard = (skill: IProps) => {
     return (
-        <motion.div key={skill._id} variants={itemVariants} whileHover={{ scale: 1.05, rotateZ: 2 }}>
+        <motion.div key={skill._id} variants={itemVariants}>
             <Card className="h-full flex flex-col items-center text-center p-6 transition-all duration-300 hover:shadow-lg hover:border-[hsl(var(--primary))]">
                 <div className="relative w-16 h-16 mb-4 flex items-center justify-center">
                 <Image
