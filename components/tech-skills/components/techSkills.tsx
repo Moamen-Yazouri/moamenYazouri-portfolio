@@ -1,18 +1,37 @@
 "use client"
-import { motion } from "framer-motion";
-import { containerVariants, itemVariants } from "./variants.constants";
-import SkillCard from "./components/SkillCard";
+import { motion, useInView } from "framer-motion";
+import { containerVariants, itemVariants } from "../variants.constants";
+import SkillCard from "./SkillCard";
 import { SkillForPortfolio } from "@/@types";
+import { useContext, useEffect, useRef } from "react";
+import { InViewContext } from "@/providers/inViewSection/inViewSection";
 
 interface IProps {
   skills: SkillForPortfolio[];
 }
 
 export default function TechSkillsSection({skills}: IProps) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { margin: "-40% 0px -50% 0px" });
+  const {setInView} = useContext(InViewContext);
   
+  useEffect(() => {
+    let debounce = undefined;
+
+    if(isInView) {
+      debounce = setTimeout(() => {
+        setInView("#tech-skills");
+      }, 500);
+    }
+    return () => {
+      if(debounce) {
+        clearTimeout(debounce);
+      }
+    }
+  }, [isInView]);
   
   return (
-    <section id="tech-skills" className="w-full py-12 md:py-24 lg:py-32 bg-[hsl(var(--background))]">
+    <section id="tech-skills" ref={ref} className="w-full py-12 md:py-24 lg:py-32 bg-[hsl(var(--background))]">
       <div className="container mx-auto px-4 md:px-6">
         <motion.div
           initial="hidden"

@@ -12,6 +12,6 @@ const certificateSchema = new Schema<ICertificateDocument>({
     { timestamps: true }
 )
 
-const CertificateModel = mongoose.models.CertificateModel || mongoose.model<ICertificateDocument>("Certificates", certificateSchema);
+const CertificateModel = mongoose.models.Certificate || mongoose.model<ICertificateDocument>("Certificate", certificateSchema);
 
 export default CertificateModel;

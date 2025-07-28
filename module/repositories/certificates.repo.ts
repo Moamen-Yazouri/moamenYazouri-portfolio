@@ -1,3 +1,4 @@
+"server-only";
 import { ICertificate, ICertificateFromDB } from "@/@types";
 import CertificateModel from "@/DB/models/certificates.model";
 

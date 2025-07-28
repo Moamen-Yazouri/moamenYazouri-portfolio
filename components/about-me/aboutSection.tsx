@@ -2,17 +2,35 @@
 
 import type React from "react";
 
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { useContext, useEffect, useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
 import StoryCard from "./components/storyCard";
 import TechStack from "./components/techStack";
 import Achivements from "./components/achivements";
 import AboutTitle from "./components/aboutTitle";
 import BackgroundOrbs from "./components/backgroundOrbs";
+import { InViewContext } from "@/providers/inViewSection/inViewSection";
 
 export default function AboutMeSection() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const ref = useRef(null);
+  const isInView = useInView(ref, { margin: "-40% 0px -50% 0px" });
+  const {setInView, inView} = useContext(InViewContext);
+  
+  useEffect(() => {
+    let debounce = undefined;
 
+    if(isInView) {
+      debounce = setTimeout(() => {
+        setInView("#about-me");
+      }, 500);
+    }
+    return () => {
+      if(debounce) {
+        clearTimeout(debounce);
+      }
+    }
+  }, [isInView]);
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY })
@@ -26,6 +44,7 @@ export default function AboutMeSection() {
   return (
     <section
       id="about-me"
+      ref={ref}
       className="w-full py-12 md:py-24 lg:py-32 relative overflow-hidden bg-gradient-to-br from-background via-muted/20 to-accent/10"
     >
       <BackgroundOrbs />

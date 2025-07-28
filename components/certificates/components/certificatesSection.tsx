@@ -1,16 +1,35 @@
 "use client"
-import { motion } from "framer-motion"; 
-import CertificateCard from "./components/certificateCard";
-import { containerVariants, itemVariants } from "./variants.constants";
+import { motion, useInView } from "framer-motion"; 
+import CertificateCard from "../components/certificateCard";
+import { containerVariants, itemVariants } from "../variants.constants";
 import { CertificateForPortfolio } from "@/@types";
+import { useContext, useEffect, useRef } from "react";
+import { InViewContext } from "@/providers/inViewSection/inViewSection";
 
 interface IProps {
   certificates: CertificateForPortfolio[]
 }
 export default function CertificatesSection({certificates}: IProps) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { margin: "-40% 0px -50% 0px" });
+  const {setInView} = useContext(InViewContext);
   
+  useEffect(() => {
+    let debounce = undefined;
+
+    if(isInView) {
+      debounce = setTimeout(() => {
+        setInView("#certificates");
+      }, 500);
+    }
+    return () => {
+      if(debounce) {
+        clearTimeout(debounce);
+      }
+    };
+  }, [isInView]);
   return (
-    <section id="certificates" className="w-full py-12 md:py-24 lg:py-32 bg-[hsl(var(--background))]">
+    <section id="certificates" ref={ref} className="w-full py-12 md:py-24 lg:py-32 bg-[hsl(var(--background))]">
       <div className="container mx-auto px-4 md:px-6">
         <motion.div
           initial="hidden"

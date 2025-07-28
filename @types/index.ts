@@ -28,6 +28,14 @@ export interface IDbFormat {
     __v: number  
 }
 
+export interface IMessage {
+  name: string,
+  email: string,
+  message: string,
+}
+
+export interface IMessageFromDB extends IMessage, IDbFormat {};
+
 export interface ICertificateFromDB extends ICertificate, IDbFormat {};
 
 export interface IProjectFormDB extends IProject, IDbFormat {};

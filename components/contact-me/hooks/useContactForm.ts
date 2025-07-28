@@ -1,7 +1,12 @@
+"use client";
 import { useFormik } from "formik"
 import { IFormValues } from "./types"
 import { INITIAL_VALUES } from "./constants"
 import { validationSchema } from "./validaitionSchema"
+import { IMessage } from "@/@types"
+import messageService from "@/module/services/message.service"
+import { toast } from "sonner"
+import { submitMessage } from "../service/submitMessage.service";
 
 export const useContactForm = () => {
     const handleSubmit = (
@@ -9,16 +14,33 @@ export const useContactForm = () => {
         setSubmitting: (submitting: boolean) => void,
         resetForm: () => void
     ) => {
-        console.log(values);
-        setTimeout(() => {
+        const formated: IMessage = {
+            email: values.email,
+            name: values.name,
+            message: values.message,
+        };
+        submitMessage(formated)
+        .then((data) => {
+            if(typeof data === "string") {
+                toast.error(data);
+            }
+            else {
+                toast.success("Message sent successfully!");
+            }
+        })
+        .catch(() => {
+            toast.error("Something went wrong!");
+        })
+        .finally(() => {
             setSubmitting(false);
             resetForm();
-        }, 3000)
+        });
     }
 
     const formik = useFormik<IFormValues>({
         initialValues: INITIAL_VALUES,
         validationSchema: validationSchema,
+        validateOnBlur: false,
         onSubmit: ((
             values,
             {

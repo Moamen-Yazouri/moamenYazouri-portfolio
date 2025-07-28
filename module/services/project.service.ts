@@ -1,9 +1,11 @@
 import { IProject, IProjectFormDB, ProjectForPortfolio } from "@/@types";
 import projectRepo from "../repositories/project.repo";
 import { formater } from "./utils/utils";
+import { connection } from "@/DB/connection";
 
 class ProjectService {
     async addProject(project: IProject): Promise<IProjectFormDB[] | null> {
+        await connection();
         try {
             const newData = await projectRepo.addProject(project);
             return newData;
@@ -15,6 +17,7 @@ class ProjectService {
     }
 
     async getAllProjects(): Promise<ProjectForPortfolio[]>{
+        await connection();
         try {
             const projects = await projectRepo.getAllProjects();
             const formatedProjects = formater<IProjectFormDB, ProjectForPortfolio>(projects);

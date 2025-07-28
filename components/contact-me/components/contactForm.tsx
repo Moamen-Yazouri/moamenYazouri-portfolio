@@ -1,4 +1,5 @@
-import { Button } from '@/components/ui/button'
+"use client";
+import { Button } from '@/components/ui/button';
 import { 
   Card, 
   CardContent, 
@@ -76,7 +77,7 @@ const ContactForm = () => {
                             transition={{ duration: 0.3 }}
                             className="flex items-center justify-center"
                           >
-                            {formik.isSubmitting ? <Loader /> : "Send Message"}
+                            {formik.isSubmitting ? <Loader /> : "Send"}
                           </motion.span>
                           <motion.div
                             initial={{ x: "100%", opacity: 0 }}

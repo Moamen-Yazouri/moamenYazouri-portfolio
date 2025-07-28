@@ -7,7 +7,7 @@ import { containerVariants, itemVariants } from "./variants.constants";
 import { SOCIAL_ICONS } from "./constants";
 
 export default function FooterSection() {
-  
+
   return (
     <footer className="w-full py-12 md:py-16 relative overflow-hidden bg-gradient-to-br from-[hsl(var(--background))] via-[hsl(var(--muted)/0.1)] to-[hsl(var(--accent)/0.05)]">
       
