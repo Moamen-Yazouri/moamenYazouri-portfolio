@@ -14,7 +14,8 @@ const eslintConfig = [
   {
       rules: {
       'import/no-anonymous-default-export': 'off',
-      "@typescript-eslint/no-empty-object-type": 'false'
+      "@typescript-eslint/no-empty-object-type": 'false',
+      'import/no-anonymous-default-export': 'off'
     }
   }
 ];
