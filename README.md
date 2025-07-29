@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Moamen Al-Yazouri — Developer Portfolio 🌐
 
-## Getting Started
+Welcome to my personal portfolio website built with **Next.js**, showcasing my projects, skills, and experience as a full-stack developer passionate about building modern, interactive, and AI-enhanced web applications.
 
-First, run the development server:
+> 🚀 Built with performance, aesthetics, and accessibility in mind.
+
+---
+
+## 📌 Features
+
+- ✨ **Stunning Hero Section** with:
+  - Floating gradient orbs, animated tech logos, and particles
+  - Profile image with hover effects and interactive social buttons
+- 📄 **About Section** with:
+  - Dynamic tech stack badges
+  - Achievements and story cards with motion animations
+- 🧠 **Skills & Certificates**:
+  - Rendered from structured TypeScript interfaces
+  - Animated hover effects and clean layout
+- 🧰 **Projects Section**:
+  - Each project includes tech stack, description, GitHub/demo links
+  - Features FormAI, CodePilot, Memory Game, and Clinic System
+- 📬 **Contact Form** with:
+  - Animated fields and interactive feedback
+  - Integrated with backend API to send messages
+- 🌗 **Dark/Light Theme Toggle**:
+  - Built using Tailwind CSS variables and `:root` HSL system
+- 💻 **Fully Responsive** for desktop, tablet, and mobile devices
+
+---
+
+## 🧑‍💻 Technologies Used
+
+- **Frontend**: Next.js (App Router), React, TypeScript
+- **Styling**: Tailwind CSS, ShadCN UI, Framer Motion, Lucide Icons
+- **Animations**: Framer Motion, custom gradients, SVG particles
+- **Forms**: Formik, yup for validation
+- **Utilities**: ESLint, Prettier, Absolute Imports
+
+---
+
+## 📁 Project Structure
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+├── app/                # Next.js App Router pages and layouts
+├── components/         # Reusable UI components (cards, buttons, badges)
+├── sections/           # Hero, About, Projects, Contact sections
+├── constants/          # Skills, projects, certificates, and story data
+├── styles/             # Global CSS, gradients, and themes
+├── public/             # Static assets and images
+├── lib/                # Helper functions and hooks
+└── types/              # TypeScript interfaces and shared types
