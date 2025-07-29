@@ -25,7 +25,7 @@ export function TechIconsAnimation() {
       const y = Math.random() * dimensions.height
       const duration = 10 + Math.random() * 10
       const delay = Math.random() * 10
-      const size = 24 + Math.random() * 24
+      const size = 30 + Math.random() * 24
       const opacity = 0.3 + Math.random() * 0.7
       
   
