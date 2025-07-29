@@ -16,7 +16,7 @@ const AboutTitle = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
             >
-              Heres a glimpse into my journey, skills, and what drives me.
+              Here's a glimpse into my journey, skills, and what drives me.
             </motion.p>
         </motion.div>
     )

@@ -42,7 +42,7 @@ export default function ContactSection() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.1 }}
           variants={containerVariants}
           className="flex flex-col items-center justify-center space-y-8 text-center"
         >
