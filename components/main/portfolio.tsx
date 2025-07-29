@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import Header from '../header/header'
 import HeroSection from '../hero/HeroSection'
 import AboutMeSection from '../about-me/aboutSection'
@@ -10,6 +10,7 @@ import skillService from '@/module/services/skill.service'
 import CertificatesSection from '../certificates/components/certificatesSection'
 import ProjectsSection from '../my-Projects/components/myProjects'
 import TechSkillsSection from '../tech-skills/components/techSkills'
+import LoadingPage from '@/app/loading'
 
 const Portfolio = async() => {
   const [
@@ -26,9 +27,12 @@ const Portfolio = async() => {
         <Header />
         <HeroSection/>
         <AboutMeSection/>
+        <Suspense fallback={<LoadingPage />}>
+
         <CertificatesSection certificates={certificates} />
         <ProjectsSection projects={projects}/>
         <TechSkillsSection skills={skills} />
+        </Suspense>
         <ContactSection />
         <FooterSection />
     </>
