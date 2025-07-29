@@ -5,8 +5,8 @@ import { NextRequest, NextResponse } from "next/server";
 export const POST = async(req: NextRequest) =>  {
     await connection();
     try {
-        const {data} = await req.json();
-        const newData = messageService.addMessage(data);
+        const data = await req.json();
+        const newData = await messageService.addMessage(data);
         return NextResponse.json(
             {
                 newData: newData,
