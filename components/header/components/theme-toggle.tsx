@@ -16,7 +16,7 @@ export function ThemeToggle() {
       variant="ghost"
       size="icon"
       onClick={toggleTheme}
-      className="relative h-10 w-10 rounded-full overflow-hidden transition-colors duration-300 hover:bg-[hsl(var(--primary)/0.1)]"
+      className="relative h-10 w-10 rounded-full overflow-hidden transition-colors duration-300 hover:bg-[hsl(var(--primary)/0.1)] cursor-pointer"
       aria-label="Toggle theme"
     >
       <motion.div
