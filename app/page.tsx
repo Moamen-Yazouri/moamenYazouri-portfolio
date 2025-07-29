@@ -25,24 +25,24 @@ export const metadata = {
     "backend developer",
     "developer portfolio"
   ],
-  metadataBase: new URL("https://form-ai-gold.vercel.app"), 
-  openGraph: {
+  metadataBase: new URL("https://moamen-yazouri-portfolio.vercel.app"), 
+    openGraph: {
     title: "Moamen Al-Yazouri | React & Next.js Developer",
     description:
       "Discover Moamen's latest web and AI-powered projects including FormAI and CodePilot. Built with React, Next.js, and cutting-edge tools for a modern digital experience.",
-    url: "https://form-ai-gold.vercel.app",
+    url: "https://moamen-yazouri-portfolio.vercel.app",
     siteName: "Moamen Al-Yazouri Portfolio",
-    images: ["/portfolio.png"],
+    images: ["https://moamen-yazouri-portfolio.vercel.app/portfolio.png"],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    site: "@MoamenYazouri", 
-    creator: "@Moamen-Yazouri",
+    site: "@MoamenYazouri",
+    creator: "@MoamenYazouri",
     title: "Moamen Al-Yazouri | React & Next.js Developer",
     description:
-      "View Moamen's personal portfolio showcasing AI-powered tools, modern UIs, and full-stack apps using React, TypeScript, and MongoDB.",
-    images: ["/portfolio.png"],
+    "View Moamen's personal portfolio showcasing AI-powered tools, modern UIs, and full-stack apps using React, TypeScript, and MongoDB.",
+    images: ["https://moamen-yazouri-portfolio.vercel.app/portfolio.png"],
   },
   other: {
     developer: "Moamen Al-Yazouri",
