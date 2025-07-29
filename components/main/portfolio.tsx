@@ -11,6 +11,7 @@ import CertificatesSection from '../certificates/components/certificatesSection'
 import ProjectsSection from '../my-Projects/components/myProjects'
 import TechSkillsSection from '../tech-skills/components/techSkills'
 import LoadingPage from '@/app/loading'
+import ScrollToTop from '../sroll-arrow/scrollArrow'
 
 const Portfolio = async() => {
   const [
@@ -25,16 +26,20 @@ const Portfolio = async() => {
   return (
     <>
         <Header />
-        <HeroSection/>
-        <AboutMeSection/>
-        <Suspense fallback={<LoadingPage />}>
+        <main>
 
-        <CertificatesSection certificates={certificates} />
-        <ProjectsSection projects={projects}/>
-        <TechSkillsSection skills={skills} />
-        </Suspense>
-        <ContactSection />
+          <HeroSection/>
+          <AboutMeSection/>
+          <Suspense fallback={<LoadingPage />}>
+
+          <CertificatesSection certificates={certificates} />
+          <ProjectsSection projects={projects}/>
+          <TechSkillsSection skills={skills} />
+          </Suspense>
+          <ContactSection />
+        </main>
         <FooterSection />
+        <ScrollToTop />
     </>
   )
 }
