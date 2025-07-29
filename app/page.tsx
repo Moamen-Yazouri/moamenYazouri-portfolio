@@ -32,7 +32,7 @@ export const metadata = {
       "Discover Moamen's latest web and AI-powered projects including FormAI and CodePilot. Built with React, Next.js, and cutting-edge tools for a modern digital experience.",
     url: "https://form-ai-gold.vercel.app",
     siteName: "Moamen Al-Yazouri Portfolio",
-    images: ["/seo.jpg"],
+    images: ["/portfolio.png"],
     type: "website",
   },
   twitter: {
@@ -42,7 +42,7 @@ export const metadata = {
     title: "Moamen Al-Yazouri | Full-Stack Developer Portfolio",
     description:
       "View Moamen's personal portfolio showcasing AI-powered tools, modern UIs, and full-stack apps using React, TypeScript, and MongoDB.",
-    images: ["/seo.jpg"],
+    images: ["/portfolio.png"],
   },
   other: {
     developer: "Moamen Al-Yazouri",
