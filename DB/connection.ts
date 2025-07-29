@@ -3,8 +3,7 @@ import mongoose from "mongoose";
 const MONGO_URI: string | undefined = process.env.MONGO_URI;
 
 if(!MONGO_URI) {
-    console.log(MONGO_URI)
-    throw new Error("⚠️ Error: MONGO_URI environment variable is missing!");
+    throw new Error("⚠️ Error: Failed To connect to DB!");
 }
 
 export const connection  = async() => {
@@ -16,9 +15,8 @@ export const connection  = async() => {
                 dbName: "my-portfolio"
             }
         )   
-        console.log("🚀 Successfully connected to MongoDB!");
     } catch (error) {
-        console.error("❌ Failed to connect to MongoDB:", error);
+        console.error("❌ Failed to connect DB:", error);
         throw new Error("⚠️ Database connection attempt unsuccessful.");
     }
 }

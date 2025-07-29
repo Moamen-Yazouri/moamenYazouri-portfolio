@@ -4,7 +4,6 @@ import { IFormValues } from "./types"
 import { INITIAL_VALUES } from "./constants"
 import { validationSchema } from "./validaitionSchema"
 import { IMessage } from "@/@types"
-import messageService from "@/module/services/message.service"
 import { toast } from "sonner"
 import { submitMessage } from "../service/submitMessage.service";
 
@@ -25,6 +24,7 @@ export const useContactForm = () => {
                 toast.error(data);
             }
             else {
+                console.log(data)
                 toast.success("Message sent successfully!");
             }
         })
