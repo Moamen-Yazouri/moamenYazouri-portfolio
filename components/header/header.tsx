@@ -18,7 +18,7 @@ export default function Header() {
     <motion.header
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ type: "spring", stiffness: 80, damping: 15, delay: 0.5 }}
+      transition={{ type: "spring", stiffness: 80, damping: 15, delay: 0.1}}
       className="sticky top-2 z-50 w-[99%] max-w-[1600px] mx-auto rounded-xl p-2 border border-[hsl(var(--primary)/0.2)] shadow-xl backdrop-blur-lg overflow-hidden"
     >
       <BackgroundAnimation />
