@@ -27,7 +27,7 @@ export const metadata = {
   ],
   metadataBase: new URL("https://form-ai-gold.vercel.app"), 
   openGraph: {
-    title: "Moamen Al-Yazouri | Full-Stack Developer Portfolio",
+    title: "Moamen Al-Yazouri | React & Next.js Developer",
     description:
       "Discover Moamen's latest web and AI-powered projects including FormAI and CodePilot. Built with React, Next.js, and cutting-edge tools for a modern digital experience.",
     url: "https://form-ai-gold.vercel.app",
@@ -39,7 +39,7 @@ export const metadata = {
     card: "summary_large_image",
     site: "@MoamenYazouri", 
     creator: "@Moamen-Yazouri",
-    title: "Moamen Al-Yazouri | Full-Stack Developer Portfolio",
+    title: "Moamen Al-Yazouri | React & Next.js Developer",
     description:
       "View Moamen's personal portfolio showcasing AI-powered tools, modern UIs, and full-stack apps using React, TypeScript, and MongoDB.",
     images: ["/portfolio.png"],
