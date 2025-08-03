@@ -10,7 +10,7 @@ export default function ProfileCard() {
         <div className="relative w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-[hsl(var(--background))] shadow-2xl bg-[hsl(var(--muted)/0.5)] backdrop-blur-sm">
           <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--primary)/0.1)] to-[hsl(var(--chart-2)/0.1)]" />
           <Image
-            src="/profile.jpg"
+            src="/profile.png"
             alt="Profile Picture"
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-105"
